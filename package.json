@@ -39,5 +39,10 @@
     "prettier": "^3.4.2",
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.20.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rare0619/nest-elastic-apm-library.git"
+  },
+  "homepage": "https://github.com/rare0619/nest-elastic-apm-library#readme"
 }
