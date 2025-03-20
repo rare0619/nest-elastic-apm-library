@@ -44,5 +44,8 @@
     "type": "git",
     "url": "git+https://github.com/rare0619/nest-elastic-apm-library.git"
   },
-  "homepage": "https://github.com/rare0619/nest-elastic-apm-library#readme"
+  "homepage": "https://github.com/rare0619/nest-elastic-apm-library#readme",
+  "engines": {
+    "node": ">= 20"
+  }
 }

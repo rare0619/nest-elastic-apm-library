@@ -1,3 +1,19 @@
+## Environment
+```bash
+node: >=20
+
+nestjs: ^11.0.1
+
+elk:
+  elasticsearch: 
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.9.0
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.9.0
+  apm-server:
+    docker.elastic.co/apm/apm-server:8.9.0
+ 
+```
+
 ## Installation
 ```
 npm install @rare0619/nest-elastic-apm-library
@@ -54,7 +70,7 @@ export class AppModule implements NestModule {
 ### In AppService
 ```typescript
 import { Injectable } from '@nestjs/common';
-import { NestjsElasticApmLibService } from 'rare/elastic-apm-lib';
+import { NestjsElasticApmLibService } from '@rare0619/nest-elastic-apm-library';
 
 @Injectable()
 export class AppService {
