@@ -65,6 +65,13 @@ if (process.env.ELASTIC_APM_CAPTURE_BODY) {
     configs['captureBody'] = process.env.ELASTIC_APM_CAPTURE_BODY;
 }
 
+if (process.env.ELASTIC_APM_CAPTURE_HEADERS) {
+  configs['ELASTIC_APM_CAPTURE_HEADERS'] =
+    process.env.ELASTIC_APM_CAPTURE_HEADERS == 'true';
+} else {
+  configs['ELASTIC_APM_CAPTURE_HEADERS'] = true;
+}
+
 if (process.env.ELASTIC_APM_CAPTURE_ERROR_LOG_STACK_TRACES) {
   if (
     process.env.ELASTIC_APM_CAPTURE_ERROR_LOG_STACK_TRACES === 'never' ||
