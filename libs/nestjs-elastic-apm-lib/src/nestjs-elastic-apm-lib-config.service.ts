@@ -1,7 +1,5 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { config as dotenvConfig } from 'dotenv';
-import * as apm from 'elastic-apm-node';
-import { ApmModuleOptions } from './nestjs-elastic-apm-lib.module';
 import { AgentConfigOptions, LogLevel } from 'elastic-apm-node';
 
 dotenvConfig();
@@ -9,7 +7,8 @@ dotenvConfig();
 @Injectable()
 export class NestjsElasticApmLibConfigService {
   constructor(
-    @Inject('APM_OPTIONS') private readonly userOptions: ApmModuleOptions,
+    @Inject('APM_OPTIONS')
+    private readonly userOptions: AgentConfigOptions = {},
   ) {}
 
   private readonly LOG_LEVELS: LogLevel[] = [
