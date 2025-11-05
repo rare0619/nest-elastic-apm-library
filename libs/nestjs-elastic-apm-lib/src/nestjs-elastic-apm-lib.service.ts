@@ -7,8 +7,10 @@ import { startApm } from './start';
 export class NestjsElasticApmLibService {
   private apm: apm.Agent;
 
-  constructor(configService: NestjsElasticApmLibConfigService) {
-    this.apm = startApm(configService);
+  constructor(
+    private readonly configService: NestjsElasticApmLibConfigService,
+  ) {
+    this.apm = startApm(this.configService.getConfig());
   }
 
   public captureError(
