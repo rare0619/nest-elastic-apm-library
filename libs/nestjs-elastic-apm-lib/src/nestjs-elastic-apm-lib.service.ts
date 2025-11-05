@@ -1,13 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import apm from 'elastic-apm-node';
-import { apmAgent } from './start';
+import { NestjsElasticApmLibConfigService } from '@app/nestjs-elastic-apm-lib/nestjs-elastic-apm-lib-config.service';
+import { startApm } from './start';
 
 @Injectable()
 export class NestjsElasticApmLibService {
   private apm: apm.Agent;
 
-  constructor() {
-    this.apm = apmAgent;
+  constructor(configService: NestjsElasticApmLibConfigService) {
+    this.apm = startApm(configService);
   }
 
   public captureError(
@@ -34,5 +35,9 @@ export class NestjsElasticApmLibService {
 
   public setCustomContext(context: Record<string, unknown>): void {
     this.apm.setCustomContext(context);
+  }
+
+  public getApmAgent() {
+    return this.apm;
   }
 }
